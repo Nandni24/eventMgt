@@ -51,5 +51,7 @@ Route::post('/locationform',[locationcontroller::class,'storelocation'])->name('
 Route::get('/feedbackdisplay',[FeedbackController::class,'display']);
 Route::get('/bookingdisplay',[BookingEventController::class,'display']);
 Route::get('acceptedevent/{id}', [BookingEventController::class,'acceptevent']);
+Route::get('rejectdevent/{id}', [BookingEventController::class,'regectevent']);
+
 
 // Route::get('/acceptedevent/{$bid}',[BookingEventController::class,'rejected']);

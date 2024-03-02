@@ -19,7 +19,7 @@
         <tr>
            
             <td>{{$feed->fid}}</td>
-            <td>{{$feed->cid}}</td>
+            <td>{{$feed->customer->cname}}</td>
             <td>{{$feed->feedbacks}}</td>
             
            

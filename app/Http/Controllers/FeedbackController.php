@@ -10,11 +10,11 @@ class FeedbackController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function storefeedback()
-    {
-        // $feed=feedback::with('customer')->get();
-        // dd($feed);
-    }
+    // public function storefeedback()
+    // {
+    //     $feed=feedback::with('customer')->get();
+    //     dd($feed);
+    // }
 
     /**
      * Show the form for creating a new resource.
@@ -26,7 +26,9 @@ class FeedbackController extends Controller
 
     public function display(){
 
-        $feedback=feedback::all();
+        $feedback = feedback::with('customer')->get();
+        
+        // dd($feedback);
         return view('feedbackdisplay',compact('feedback'));
     }
 

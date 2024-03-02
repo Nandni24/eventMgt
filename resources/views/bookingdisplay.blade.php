@@ -36,7 +36,7 @@
             <td>{{$book->people_count}}</td>
             {{-- <td><a href="{{url('acceted',$book->bid)}}">Accept</a> --}}
             <td><a href="/acceptedevent/{{$book->bid}}">Accept</a>
-            <a href='/rejected/{{$book->bid}}'>Reject</a></td>
+            <a href='/rejectdevent/{{$book->bid}}'>Reject</a></td>
             <td>{{$book->status}}</td>
 
             
