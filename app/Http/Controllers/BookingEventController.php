@@ -17,12 +17,17 @@ class BookingEventController extends Controller
     public function acceptevent($bid)
     {
         $book=bookingEvent::get('bid',$bid);
-        // dd($book);
-        $book->status="accepted";
-        // bookingEvent::where('bid',$bid )->update();
-        // $book->where('bid',)->update(['status'=>"Accepted"]);
-        // return redirect()->back();
+        bookingEvent::where('bid',$bid )->update(['status' => 'accepted']);
+        return redirect()->back();
     }
+    public function regectevent($bid)
+    {
+        $book=bookingEvent::get('bid',$bid);
+        bookingEvent::where('bid',$bid )->update(['status' => 'rejected']);
+        return redirect()->back();
+    }
+
+
 
     public function accepted($id)
     {
