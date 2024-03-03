@@ -3,20 +3,27 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\models\locationmodel;
+use App\Models\location;
 
 class locationcontroller extends Controller
 {
     public function storelocation(Request $request)
     {
         $value=$request->validate([
-            'l_name'=>'required',
+            'lname'=>'required',
            
         ]);
 
-        $loc=new locationmodel();
-        $loc->lname=$request->l_name;
+        $loc=new location();
+        $loc->lname=$request->lname;
         // dd($loc);
         $loc->save();
     }
+
+    public function displayloc(){
+
+        $loc=location::all();
+        return view('locationdisplay',compact('loc'));
+    }
+
 }

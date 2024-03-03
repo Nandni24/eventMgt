@@ -7,9 +7,15 @@
     <title>Document</title>
 </head>
 <body>
-    <form method="POST" action="{{route('storelocation')}}">
+    <form method="POST" action="{{route('storeservice')}}">
         @csrf
-        <input type="text" name="lname"  placeholder="location name"><br>
+        
+        <input type="text" name="sname"  placeholder="service name"><br>
+
+        <input type="text" name="sdescription"  placeholder="service description"><br>
+
+        <input type="text" name="sprice"  placeholder="service price"><br>
+
         <button type="submit">Submit</button>    
     </form>
 </body>

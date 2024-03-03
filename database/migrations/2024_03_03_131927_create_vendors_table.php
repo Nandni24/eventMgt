@@ -13,6 +13,12 @@ return new class extends Migration
     {
         Schema::create('vendors', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('vid');
+            $table->foreign('vid')->references('vid')->on('vendorregi');
+            $table->string('vname');
+            $table->string('vage');
+            $table->string('vphno');
+            $table->string('vcategory');
             $table->timestamps();
         });
     }

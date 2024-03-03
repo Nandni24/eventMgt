@@ -11,16 +11,16 @@
 
         <tr>
             <th>ID</th>
-            <th>Customer Name</th>
-            <th>Feedback</th>
+            <th>Location Name</th>
+            {{-- <th>Feedback</th> --}}
             
         </tr>
-        @foreach($feedback as $feed)
+        @foreach($loc as $loca)
         <tr>
            
-            <td>{{$feed->fid}}</td>
-            <td>{{$feed->customer->cname}}</td>
-            <td>{{$feed->feedbacks}}</td>
+            <td>{{$loca->lid}}</td>
+            <td>{{$loca->lname}}</td>
+            {{-- <td>{{$feed->feedbacks}}</td> --}}
             
            
         </tr>

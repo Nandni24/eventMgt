@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\package;
+use App\Models\packages;
 use Illuminate\Http\Request;
 
 class PackageController extends Controller
@@ -34,12 +34,44 @@ class PackageController extends Controller
             'p_description'=>'required'
         ]);
 
-        $pack=new package();
+        $pack=new packages();
         $pack->p_name=$request->p_name;
         $pack->p_price=$request->p_price;
         $pack->p_description=$request->p_description;
         $pack->save();
     }
+
+    public function display()
+    {
+        $pac=packages::all();
+        return view('packagedisplay',compact('pac'));
+    }
+
+    public function editpackage($id)
+    {
+        $pac=packages::find($id);
+        // dd($pac);
+
+        // return view('editpackage',compact('pac'));
+
+    }
+
+    public function updatepackage($pid,Request $request)
+    {
+        $value=$request->validate([
+            'p_name'=>'required',
+            'p_price'=>'required',
+            'p_description'=>'required'
+        ]);
+
+        $pack=new packages();
+        $pack->p_name=$request->p_name;
+        $pack->p_price=$request->p_price;
+        $pack->p_description=$request->p_description;
+        $pack->where('pid',$pid)->update($value);
+         return redirect("displaypackage");
+    }
+
 
     /**
      * Display the specified resource.

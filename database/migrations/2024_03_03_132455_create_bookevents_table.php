@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('booking_events', function (Blueprint $table) {
+        Schema::create('bookevents', function (Blueprint $table) {
             $table->id('bid');
             $table->string('event_name');
             $table->integer('people_count');
@@ -25,6 +25,7 @@ return new class extends Migration
             $table->foreign('pid')->references('pid')->on('packages');
             $table->string('status');
             $table->timestamps();
+            
         });
     }
 
@@ -33,6 +34,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('booking_events');
+        Schema::dropIfExists('bookevents');
     }
 };
