@@ -22,7 +22,7 @@ return new class extends Migration
             $table->unsignedBigInteger('lid');
             $table->foreign('lid')->references('lid')->on('location');
             $table->unsignedBigInteger('pid');
-            $table->foreign('pid')->references('pid')->on('packages');
+            $table->foreign('pid')->references('id')->on('packages');
             $table->string('status');
             $table->timestamps();
             

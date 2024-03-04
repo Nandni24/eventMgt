@@ -47,16 +47,15 @@ class PackageController extends Controller
         return view('packagedisplay',compact('pac'));
     }
 
-    public function editpackage($id)
-    {
+    public function deletepackage($id){
+        // // dd("hello");
         $pac=packages::find($id);
-        // dd($pac);
-
-        // return view('editpackage',compact('pac'));
-
+        $pac->delete();
+        return redirect()->back();
+        // return redirect()->back();
     }
 
-    public function updatepackage($pid,Request $request)
+    public function updatepackage($id,Request $request)
     {
         $value=$request->validate([
             'p_name'=>'required',
@@ -68,40 +67,15 @@ class PackageController extends Controller
         $pack->p_name=$request->p_name;
         $pack->p_price=$request->p_price;
         $pack->p_description=$request->p_description;
-        $pack->where('pid',$pid)->update($value);
-         return redirect("displaypackage");
+        $pack->where('id',$id)->update($value);
+        return redirect('packagedisplay');
     }
 
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(package $package)
-    {
-        //
+    public function editpackage($id){
+         $pac=packages::find($id);
+        return view('editpackage',compact('pac'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(package $package)
-    {
-        //
-    }
+    
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, package $package)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(package $package)
-    {
-        //
-    }
 }
