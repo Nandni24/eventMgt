@@ -73,3 +73,7 @@ Route::get('/packagedisplay',[PackageController::class,'display']);
 Route::get('/servicesform',[ServiceseventController::class,'index']);
 Route::post('/servicesform',[ServiceseventController::class,'addservice'])->name('storeservice');
 Route::get('/servicedisplay',[ServiceseventController::class,'show'])->name("displaydata");
+// Route::get('/editservice',[ServiceseventController::class,'index']);
+Route::get('/editservice/{id}',[ServiceseventController::class,'editservice']);
+Route::post('/updateservice/{id}',[ServiceseventController::class,'updateservice'])->name('updateservice');
+Route::get('/deleteservice/{id}',[ServiceseventController::class,'deleteservice']);

@@ -60,25 +60,53 @@ class ServiceseventController extends Controller
     /**
      * Display the specified resource.
      */
+    
     public function show(servicesevent $servicesevent)
     {
         $displaydata = servicesevent::with('vender')->get();
         // dd($displaydata);
         return view('servicedisplay',compact('displaydata'));
     }
+
+
     public function editservice($id)
     {
-        // $ser=servicesevent::get('id',$id);
-        // servicesevent::where('id',$id )->update(['status' => 'accepted']);
+       
         $ser=servicesevent::find($id);
         return view('editservice',compact('ser'));
-        // return redirect()->back();
+        
     }
 
+    public function updateservice($id,Request $request)
+    {
+        
+        $value=$request->validate([
+            'sname'=>'required',
+            'sdescription'=>'required',
+            'sprice'=>'required',
+            'vid'=>'required'
+           
+        ]);
+        
+
+        $ser=new servicesevent();
+        $ser->sname=$request->sname;
+        $ser->vid = $request->vid ;
+        $ser->sdescription=$request->sdescription;
+        $ser->sprice=$request->sprice;
+        
+        // $ser->save();
+        
+
+        $ser->where('id',$id)->update($value);
+        return redirect("servicedisplay");
+
+        
+    }
     
 
 
-    public function deleteevent($id)
+    public function deleteservice($id)
     {
         $ser=servicesevent::find($id)->delete();
         return redirect()->back();

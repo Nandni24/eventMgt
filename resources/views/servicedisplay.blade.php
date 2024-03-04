@@ -25,8 +25,8 @@
             <td>{{$ser->sname}}</td>
             <td>{{$ser->sdescription}}</td>
             <td>{{$ser->sprice}}</td>
-            <td><a href="/acceptedevent/{{$ser->id}}">Edit</a>
-                <a href='/rejectdevent/{{$ser->id}}'>Delete</a></td>
+            <td><a href="/editservice/{{$ser->id}}">Edit</a>
+                <a href='/deleteservice/{{$ser->id}}'>Delete</a></td>
             
            
         </tr>
