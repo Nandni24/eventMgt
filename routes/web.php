@@ -54,11 +54,17 @@ Route::get('/bookingdisplay',[BookeventController::class,'display']);
 Route::get('acceptedevent/{id}', [BookeventController::class,'acceptevent']);
 Route::get('rejectdevent/{id}', [BookeventController::class,'regectevent']);
 
+
+Route::get('deletepackage/{id}',[PackageController::class,'deletepackage']);
+Route::get('editpackage/{id}',[PackageController::class,'editpackage']);
+Route::post('updatepackage/{id}',[PackageController::class,'updatepackage'])->name('updatepackage');
+
+
 Route::get('/locationdisplay',[locationcontroller::class,'displayloc']);
 
 Route::get('/packagedisplay',[PackageController::class,'display']);
 
-Route::get('editpackage/{pid}',[PackageController::class,'editpackage']);
-Route::post('/updatepackage/{pid}',[PackageController::class,'updatepackage'])->name('updatepackage');
+// Route::get('editpackage/{pid}',[PackageController::class,'editpackage']);
+// Route::post('/updatepackage/{pid}',[PackageController::class,'updatepackage'])->name('updatepackage');
 
 // Route::get('/acceptedevent/{$bid}',[BookingEventController::class,'rejected']);

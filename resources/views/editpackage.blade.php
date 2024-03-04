@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-    <form method="POST" action="{{route('updatepackage',$pac->pid)}}">
+    <form method="POST" action="{{route('updatepackage',$pac->id)}}">
        
         @csrf
         

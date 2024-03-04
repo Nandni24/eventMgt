@@ -21,12 +21,12 @@
         @foreach($pac as $pack)
         <tr>
            
-            <td>{{$pack->pid}}</td>
+            <td>{{$pack->id}}</td>
             <td>{{$pack->p_name}}</td>
             <td>{{$pack->p_price}}</td>
             <td>{{$pack->p_description}}</td>
-            <td><a href='/editpackage/{{$pack->pid}}'>EDIT</a>
-                <a href='/deletepackage/{{$pack->pid}}'>DELETE</a></td>
+            <td><a href='/editpackage/{{$pack->id}}'>EDIT</a>
+                <a href='/deletepackage/{{$pack->id}}'>DELETE</a></td>
             {{-- <td>{{$feed->feedbacks}}</td> --}}
             
            
