@@ -17,16 +17,16 @@
             <th>Service Price</th>
             
         </tr>
-        @foreach($displaydata as $ser)
+        @foreach($ser as $seri)
         <tr>
            
-            <td>{{$ser->id}}</td>
-            <td>{{$ser->vender->vcname}}</td>
-            <td>{{$ser->sname}}</td>
-            <td>{{$ser->sdescription}}</td>
-            <td>{{$ser->sprice}}</td>
-            <td><a href="/editservice/{{$ser->id}}">Edit</a>
-                <a href='/deleteservice/{{$ser->id}}'>Delete</a></td>
+            <td>{{$seri->id}}</td>
+            <td>{{$seri->vender->vcname}}</td>
+            <td>{{$seri->sname}}</td>
+            <td>{{$seri->sdescription}}</td>
+            <td>{{$seri->sprice}}</td>
+            <td><a href="/editservice/{{$seri->id}}">Edit</a>
+                <a href='/deleteservice/{{$seri->id}}'>Delete</a></td>
             
            
         </tr>

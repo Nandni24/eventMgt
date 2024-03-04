@@ -60,7 +60,7 @@ class ServiceseventController extends Controller
     /**
      * Display the specified resource.
      */
-    
+
     public function show(servicesevent $servicesevent)
     {
         $displaydata = servicesevent::with('vender')->get();
@@ -76,6 +76,33 @@ class ServiceseventController extends Controller
         return view('editservice',compact('ser'));
         
     }
+
+    // public function updateservice($id,Request $request)
+    // {
+        
+    //     $value=$request->validate([
+    //         'sname'=>'required',
+    //         'sdescription'=>'required',
+    //         'sprice'=>'required',
+    //         'vid'=>'required'
+           
+    //     ]);
+        
+
+    //     $ser=new servicesevent();
+    //     $ser->sname=$request->sname;
+    //     $ser->vid = $request->vid ;
+    //     $ser->sdescription=$request->sdescription;
+    //     $ser->sprice=$request->sprice;
+        
+    //     // $ser->save();
+        
+
+    //     $ser->where('id',$id)->update($value);
+    //     return redirect("servicedisplay");
+
+        
+    // }
 
     public function updateservice($id,Request $request)
     {
