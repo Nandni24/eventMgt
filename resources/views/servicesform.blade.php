@@ -10,6 +10,12 @@
     <form method="POST" action="{{route('storeservice')}}">
         @csrf
         
+        <select name="vid" id="vid">
+            @foreach($ven as $vend)
+            {{-- <option value="hello">Helo</option> --}}
+                <option value="{{ $vend->vid }}"> {{ $vend->vcname }}</option>
+            @endforeach
+        </select>
         <input type="text" name="sname"  placeholder="service name"><br>
 
         <input type="text" name="sdescription"  placeholder="service description"><br>

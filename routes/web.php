@@ -6,6 +6,7 @@ use App\Http\Controllers\PackageController;
 use App\Http\Controllers\locationcontroller;
 use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\BookeventController;
+use App\Http\Controllers\ServiceseventController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -68,3 +69,7 @@ Route::get('/packagedisplay',[PackageController::class,'display']);
 // Route::post('/updatepackage/{pid}',[PackageController::class,'updatepackage'])->name('updatepackage');
 
 // Route::get('/acceptedevent/{$bid}',[BookingEventController::class,'rejected']);
+
+Route::get('/servicesform',[ServiceseventController::class,'index']);
+Route::post('/servicesform',[ServiceseventController::class,'addservice'])->name('storeservice');
+Route::get('/servicedisplay',[ServiceseventController::class,'show'])->name("displaydata");
