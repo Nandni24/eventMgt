@@ -7,6 +7,7 @@ use App\Http\Controllers\locationcontroller;
 use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\BookeventController;
 use App\Http\Controllers\ServiceseventController;
+use App\Http\Controllers\VendorsController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,6 +27,12 @@ Route::get('/custform',function(){
 
 });
 Route::post('/custform',[CustomersController::class,'store'])->name('storecustomer');
+
+Route::get('/vendorregiform',function(){
+    return view('vendorregiform');
+
+});
+Route::post('/vendorregiform',[VendorsController::class,'storevendor'])->name('storevendor');
 
 Route::get('/bookingform',function(){
     return view('bookingform');
@@ -72,7 +79,7 @@ Route::get('/packagedisplay',[PackageController::class,'display']);
 
 Route::get('/servicesform',[ServiceseventController::class,'index']);
 Route::post('/servicesform',[ServiceseventController::class,'addservice'])->name('storeservice');
-Route::get('/servicedisplay',[ServiceseventController::class,'show'])->name("displaydata");
+Route::get('/servicedisplay',[ServiceseventController::class,'show']);
 // Route::get('/editservice',[ServiceseventController::class,'index']);
 Route::get('/editservice/{id}',[ServiceseventController::class,'editservice']);
 Route::post('/updateservice/{id}',[ServiceseventController::class,'updateservice'])->name('updateservice');

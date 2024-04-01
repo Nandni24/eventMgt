@@ -23,6 +23,26 @@ class VendorsController extends Controller
         //
     }
 
+    public function storevendor(Request $request)
+    {
+        // dd("hello");
+        $value=$request->validate([
+            'vcname'=>'required',
+            'vpass'=>'required',
+            'vemail'=>'required'
+        ]);
+
+        // dd($value);
+        $ven=new Vendors();
+        $ven->vcname=$request->vcname;
+        $ven->vpass=$request->vpass;
+        $ven->vemail=$request->vemail;
+        $ven->save();
+
+        return redirect('vendorregiform');
+
+    }
+
     /**
      * Store a newly created resource in storage.
      */
@@ -62,4 +82,6 @@ class VendorsController extends Controller
     {
         //
     }
+
+    
 }
