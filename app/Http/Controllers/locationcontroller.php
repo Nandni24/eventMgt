@@ -18,6 +18,7 @@ class locationcontroller extends Controller
         $loc->lname=$request->lname;
         // dd($loc);
         $loc->save();
+        // $loc->save();
     }
 
     public function displayloc(){

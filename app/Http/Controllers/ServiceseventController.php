@@ -53,7 +53,7 @@ class ServiceseventController extends Controller
         $ser->sprice=$request->sprice;
         // dd($ser);
         $ser->save();
-        return redirect("displaydata");
+        return redirect("ser");
         // dd($ser);
     }
 
@@ -63,9 +63,9 @@ class ServiceseventController extends Controller
 
     public function show(servicesevent $servicesevent)
     {
-        $displaydata = servicesevent::with('vender')->get();
+        $ser = servicesevent::with('vender')->get();
         // dd($displaydata);
-        return view('servicedisplay',compact('displaydata'));
+        return view('servicedisplay',compact('ser'));
     }
 
 
@@ -106,6 +106,7 @@ class ServiceseventController extends Controller
 
     public function updateservice($id,Request $request)
     {
+        // dd("hello");
         
         $value=$request->validate([
             'sname'=>'required',
@@ -115,6 +116,7 @@ class ServiceseventController extends Controller
            
         ]);
         
+        // dd($value);
 
         $ser=new servicesevent();
         $ser->sname=$request->sname;
@@ -123,9 +125,10 @@ class ServiceseventController extends Controller
         $ser->sprice=$request->sprice;
         
         // $ser->save();
+        dd($ser);
         
 
-        $ser->where('id',$id)->update($value);
+       servicesevent::where('id',$id)->update($ser);
         return redirect("servicedisplay");
 
         
